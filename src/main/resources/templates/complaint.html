@@ -5,9 +5,18 @@
 </head>
 <body>
 <h2>Complaint ID: <span th:text="${complaint.complaintId}"></span></h2>
+
 <p><strong>Company:</strong> <span th:text="${complaint.company}"></span></p>
+<p><strong>Company Public Response:</strong> <span th:text="${complaint.publicResponse}"></span></p>
+<p><strong>Date Received:</strong> <span th:text="${complaint.dateReceivedStr}"></span></p>
+<p><strong>Product:</strong> <span th:text="${complaint.product}"></span></p>
+<p><strong>Sub-product:</strong> <span th:text="${complaint.subProduct}"></span></p>
+<p><strong>Issue:</strong> <span th:text="${complaint.issue}"></span></p>
+<p><strong>Sub-issue:</strong> <span th:text="${complaint.subIssue}"></span></p>
 <p><strong>Narrative:</strong></p>
 <p th:text="${complaint.narrative}"></p>
+<p><strong>State:</strong> <span th:text="${complaint.state}"></span></p>
+<p><strong>ZIP Code:</strong> <span th:text="${complaint.zipCode}"></span></p>
 
 <hr/>
 
@@ -21,8 +30,21 @@
 </ul>
 
 <hr/>
+
+<h3>Jump to Complaint</h3>
+<form method="get" action="/complaint">
+  <label for="indexInput">Enter Complaint Number (0-2499):</label>
+  <input type="text" name="index" id="indexInput" />
+  <button type="submit">Go</button>
+</form>
+
+<p th:if="${error != null}" th:text="${error}" style="color: red;"></p>
+
+<hr/>
+
 <a th:href="@{|/complaint?index=${prevIndex}|}">⬅ Previous</a> |
 <a th:href="@{|/complaint?index=${nextIndex}|}">Next ➡</a>
 
 </body>
 </html>
+

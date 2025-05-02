@@ -2,7 +2,6 @@ package edu.canisius.csc213.complaints.model;
 
 import com.opencsv.bean.CsvBindByName;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 
 public class Complaint {
@@ -236,8 +235,13 @@ public class Complaint {
         return "Complaint{" +
                 "ID=" + complaintId +
                 ", product='" + product + '\'' +
-                ", narrative='" + (narrative != null ? narrative.substring(0, Math.min(40, narrative.length())) + "..." : "null") + '\'' +
-                ", embedding preview=" + (embedding != null ? Arrays.toString(Arrays.copyOf(embedding, Math.min(5, embedding.length))) + "..." : "null") +
+                ", narrative='"
+                + (narrative != null ? narrative.substring(0, Math.min(40, narrative.length())) + "..." : "null") + '\''
+                +
+                ", embedding preview="
+                + (embedding != null ? Arrays.toString(Arrays.copyOf(embedding, Math.min(5, embedding.length))) + "..."
+                        : "null")
+                +
                 '}';
     }
 

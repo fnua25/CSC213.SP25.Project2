@@ -11,8 +11,10 @@
     <button type="submit">Search</button>
 </form>
 
+<!-- Display error message if any -->
 <p th:if="${error != null}" th:text="${error}" style="color: red;"></p>
 
+<!-- Display search results if any -->
 <ul th:if="${searchResults != null}">
     <li th:each="complaint : ${searchResults}">
         <strong th:text="'Complaint ID: ' + ${complaint.complaintId}"></strong> —
@@ -20,6 +22,7 @@
     </li>
 </ul>
 
+<!-- Optionally provide a link back to the viewer -->
 <a href="/complaint">Back to Viewer</a>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package edu.canisius.csc213.complaints.model;
 
 import com.opencsv.bean.CsvToBeanBuilder;
-import edu.canisius.csc213.complaints.model.Complaint;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStreamReader;
@@ -17,8 +16,7 @@ public class ComplaintsCsvTest {
         // Load the CSV file from test resources
         InputStreamReader reader = new InputStreamReader(
                 getClass().getResourceAsStream("/complaints_sample_1_30.csv"),
-                StandardCharsets.UTF_8
-        );
+                StandardCharsets.UTF_8);
 
         // Parse the CSV into a list of Complaint objects
         List<Complaint> complaints = new CsvToBeanBuilder<Complaint>(reader)

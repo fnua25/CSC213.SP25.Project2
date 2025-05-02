@@ -14,7 +14,12 @@ public class ComplaintMerger {
      * @param embeddings Map from complaintId to embedding vector (from JSONL)
      */
     public static void mergeEmbeddings(List<Complaint> complaints, Map<Long, double[]> embeddings) {
-        // TODO: For each complaint, match the ID to an embedding and set it
+        for (Complaint complaint : complaints) {
+            long complaintId = complaint.getComplaintId();
+            if (embeddings.containsKey(complaintId)) {
+                // Set the embedding vector for the complaint
+                complaint.setEmbedding(embeddings.get(complaintId));
+            }
+        }
     }
-
 }
